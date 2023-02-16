@@ -12,7 +12,6 @@ const Features = () => {
           </h2>
           <div className="books">
             {books
-              .slice()
               .filter(book => book.salePrice > 0)
               .slice(0, 8)
               .map((book) => (

@@ -5,6 +5,8 @@ import Books from "./pages/Books";
 import { books } from "./data";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import BookInfo from "./pages/BookInfo";
+
 
 function App() {
   
@@ -14,9 +16,9 @@ function App() {
         <Nav />
 
         <Routes>
-        <Route path="/" exact render={() => <Home books={books} />} />
-        <Route path="/books" exact render={() => <Books books={books} />} />
-        {/* <Route path="/books/:id" /> */}
+        <Route path="/" exact element={<Home books={books} />} />
+        <Route path="/books" exact element={<Books books={books} />} />
+        <Route path="/books/:id" element={<BookInfo books={books} key={books.id} />} />
         </Routes>
 
         <Footer />

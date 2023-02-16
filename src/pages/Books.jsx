@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Book from "../components/Book";
 
-const Books = ({ books: initalBooks }) => {
-  const [books, setBooks] = useState(initalBooks);
+const Books = ({ books: initialBooks }) => {
+  const [books, setBooks] = useState(initialBooks);
 
   function filterBooks(filter) {
     
@@ -44,6 +44,7 @@ const Books = ({ books: initalBooks }) => {
                 <h2 className="section__title books__header--title">
                   All Books
                 </h2>
+                
                 <select
                   id="filter"
                   onChange={(event) => filterBooks(event.target.value)}
@@ -59,9 +60,11 @@ const Books = ({ books: initalBooks }) => {
               </div>
 
               <div className="books">
-                {books && books.map((book) => {
+                {
+                books && books.map((book) => {
                   return <Book book={book} key={book.id} />;
-                })}
+                })
+                }
               </div>
 
             </div>
