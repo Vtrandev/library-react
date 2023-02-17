@@ -29,21 +29,28 @@ function App() {
 
   }
 
-  useEffect(() => {
-    console.log(cart)
-  }, [cart])
+  function removeItem(item) {
+    setCart (cart.filter(book => book.id !== item.id))
+  }
 
-  
+  function numberOfItems() {         // Review--------------------
+    let counter = 0;
+    cart.forEach(item => {
+      counter += item.quantity
+    })
+    return counter
+  }
+
   return (
     <Router>
       <div className="App">
-        <Nav />
+        <Nav numberOfItems={numberOfItems()} />
 
         <Routes>
         <Route path="/" exact element={<Home books={books} />} />
         <Route path="/books" exact element={<Books books={books} />} />
         <Route path="/books/:id" element={<BookInfo books={books} cart={cart} key={books.id} addToCart={addToCart} />} />
-        <Route path="/cart" element={<Cart books={ books } cart={cart} changeQuantity={changeQuantity} />} />
+        <Route path="/cart" element={<Cart books={ books } cart={cart} changeQuantity={changeQuantity} removeItem={removeItem} />} />
         </Routes>
 
         <Footer />
