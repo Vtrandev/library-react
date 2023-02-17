@@ -6,7 +6,7 @@ import Ratings from "./ui/Ratings";
 const Book = ({ book }) => {
   const [img, setImg] = useState();
 
-  const mountedRef = useRef(true)
+  const mountedRef = useRef(true)     // Review--------------------
 
   useEffect(() => {                  // Review--------------------
     const image = new Image();
